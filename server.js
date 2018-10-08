@@ -21,9 +21,9 @@ app.use((request, response, next) => {
 	next();
 });	// this is to create your own middleware, the middleware must call next() to mark that middleware is done
 
-app.use((request, response, next) => {
-	response.render('maintainence.hbs');	// because we did not call the next(), so it stops here.
-});
+// app.use((request, response, next) => {
+// 	response.render('maintainence.hbs');	// because we did not call the next(), so it stops here.
+// });
 
 hbs.registerHelper('getCurrentYear', () => {
 	return new Date().getFullYear()
@@ -48,6 +48,14 @@ app.get('/about', (request, response) => {
 	// response.send('About page');
 	response.render('about.hbs', {
 		pageTitle: 'About Page'
+	});
+});
+
+app.get('/projects', (request, response) => {
+	// response.send('About page');
+	response.render('projects.hbs', {
+		pageTitle: 'Projects Page',
+		welcomeMsg: 'This is the projects page'
 	});
 });
 
